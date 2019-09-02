@@ -1,20 +1,16 @@
 import React from 'react'
-import logo from '../../images/logo.svg';
 import styles from './Header.css';
+import Logo from '../Logo/Logo';
+import Nav from '../Nav/Nav';
 
 export default function Header() {
     return (
         <div className={styles.header}>
-            <div className={styles.logo}>
-                <img src={logo}/>
+            <div className={styles.left}>
+                <Logo/>
             </div>
-            <div className={styles.nav}>
-                <ul>
-                    <li>Flowers</li>
-                    <li>Latest Sightings</li>
-                    <li>Favorites</li>
-                    <li>Login</li>
-                </ul>
+            <div className={styles.right}>
+                <Nav/>
             </div>
         </div>
     )

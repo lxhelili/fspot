@@ -1,15 +1,14 @@
 .header {
     padding: 20px;
-    background: yellow;
 }
 .header:after {
     content: '';
     display: table;
     clear: both;
 }
-.logo {
+.left {
     float: left;
 }
-.nav {
+.right {
     float: right;
 }
