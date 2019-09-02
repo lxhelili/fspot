@@ -36,8 +36,20 @@ const config = {
             plugins: () => [
               postcssNormalize(/* pluginOptions */)
             ]
-          } }
+            } 
+          }
         ]
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+            },
+          },
+        ],
       }
     ],
   },
