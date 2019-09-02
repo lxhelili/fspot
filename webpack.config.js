@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackTemplate = require('html-webpack-template');
 const path = require('path');
+const postcssNormalize = require('postcss-normalize');
 
 const config = {
   entry: './src/index.js',
@@ -16,7 +17,7 @@ const config = {
         exclude: /node_modules/,
       },
       {
-        test: /\.scss$/,
+        test: /\.css$/,
         use: [
           {
             loader: "style-loader"
@@ -30,9 +31,12 @@ const config = {
                 },
             }
           },
-          {
-            loader: "sass-loader"
-          }
+          { loader: 'postcss-loader', options: {
+            ident: 'postcss',
+            plugins: () => [
+              postcssNormalize(/* pluginOptions */)
+            ]
+          } }
         ]
       }
     ],
@@ -45,6 +49,7 @@ const config = {
       inject: false,
       template: HtmlWebpackTemplate,
       appMountId: 'app',
+      links: ['https://fonts.googleapis.com/css?family=Ubuntu']
     }),
   ],
 };
