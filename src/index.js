@@ -4,6 +4,7 @@ import './styles/style.css';
 import Header from './components/Header/Header';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Cover from './components/Cover/Cover';
+import FlowersGrid from "./components/FlowersGrid/FlowersGrid";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <div className="container">
         <Header className="head"></Header>
         <Cover />
+        <FlowersGrid />
       </div>
     </Router>
   );
