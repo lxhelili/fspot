@@ -1,0 +1,23 @@
+.cover {
+    height: 500px;
+    background: url('../../images/pl-hero.png');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.coverArea {
+    color: #fff;
+    text-align: center;
+}
+.coverArea h1{
+    font-size: 40px;
+    margin: 0 0 15px 0;
+    font-weight: 300;
+}
+.coverArea p {
+    font-size: 17px;
+
+    font-weight: 300;
+    opacity: 0.7;
+    margin: 0;
+}
