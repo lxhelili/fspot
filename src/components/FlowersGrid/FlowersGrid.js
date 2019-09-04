@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import styles from './FlowersGrid.css';
+import styles from './FlowersGrid.module.css';
 import axios from 'axios';
 import FlowerItem from './FlowerItem/FlowerItem';
 

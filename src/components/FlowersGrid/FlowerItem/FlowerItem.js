@@ -1,5 +1,5 @@
 import React, {Component } from 'react'
-import styles from './FlowerItem.css';
+import styles from './FlowerItem.module.css';
 import cx from 'classnames'
 import axios from 'axios';
 

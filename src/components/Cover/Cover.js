@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './Cover.css';
+import styles from './Cover.module.css';
 import Search from '../Search/Search';
 
 export default function Cover() {

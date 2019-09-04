@@ -22,11 +22,11 @@ body {
   text-align: left;
   background-color: #fff;
 }
-:global .container {
+.container {
   margin: 0 auto;
   max-width: 1220px;
 }
-:global .modal {
+.modal {
   position: fixed;
     top: 0;
     right: 0;
@@ -37,15 +37,15 @@ body {
     overflow: hidden;
     outline: 0;
 }
-:global .modal-open .modal {
+.modal-open .modal {
   overflow-x: hidden;
   overflow-y: auto;
 }
-:global .modal.show {
+.modal.show {
   display: block !important;
   background-color: rgba(0,0,0,0.8);
 }
-:global .modal-content {
+.modal-content {
   position: relative;
   display: flex;
   flex-direction: column;
