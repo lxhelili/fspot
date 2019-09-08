@@ -41,11 +41,10 @@ class ModalContainer extends React.Component {
         <ReactModal
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeModal}
-          contentLabel="Example Modal"
           ariaHideApp={false}
-          overlayClassName="modal fade show"
+          overlayClassName="modal show"
           bodyOpenClassName="modal-open"
-          className="modal-dialog modal-dialog-centered"
+          className="modal-dialog"
         >
           <SpecifiedModal
             closeModal={this.closeModal}

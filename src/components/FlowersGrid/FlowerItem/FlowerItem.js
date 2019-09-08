@@ -5,9 +5,10 @@ import axios from 'axios';
 
 export default class FlowerItem extends Component {
     render() {
+        const favoriteIcon = (<div className={cx(styles.favoriteIcon, (this.props.item.favorites ? styles.active: ''))}></div>)
         return (
             <div className={styles.item} style ={ { backgroundImage: "url("+this.props.item.profile_picture+")" } }>
-              <div className={cx(styles.favoriteIcon, (this.props.item.favorites ? styles.active: ''))}></div>
+              {this.props.isAuthenticated ? favoriteIcon: null}
                 <div className={styles.caption}>
                     <h2>{this.props.item.name}</h2>
                     <p>{this.props.item.latin_name}</p>

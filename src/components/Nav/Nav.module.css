@@ -21,6 +21,13 @@
 .nav li.login a {
     color: #eaa79e;
 }
+.nav li.user {
+    display: flex;
+}
+.nav li.user img {
+    margin-left: 20px;
+    height: 40px;
+}
 .nav li button {
     color: #fff;
     font-size: 14px;

@@ -1,0 +1,37 @@
+.formField {
+  position: relative;
+}
+.formControlPlaceholder {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    transition: all 200ms;
+    font-size: 13px;
+    color: #334144;
+    cursor: text;
+}
+.formControl {
+    display: block;
+    width: 100%;
+    padding: 21px 15px 11px 15px;
+    font-size: 13px;
+    line-height: 1.25;
+    color: #334144;
+    border-radius: 3px;
+    border: solid 1px #dfe5ea;
+    background-color: #f5f6f7;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.formControl:focus + .formControlPlaceholder,
+.formControl:valid + .formControlPlaceholder{
+    font-size: 10px;
+    padding: 11px 0 11px 15px;
+    transform: translate3d(0, 0, 0);
+    top: 11px;
+    padding: 0;
+    left: 15px;
+    line-height: 1;
+    color: #949ea0;
+}
+
+  
