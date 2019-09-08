@@ -2,14 +2,13 @@ import axios from 'axios';
 import ActionTypes from '../constants/ActionTypes';
 import { returnErrors } from './error';
 //Check token & load user
-export const loadUser = () => (dispatch, getState) => {
+export const loadUser = () => (dispatch) => {
   // User loading
   dispatch({ type: ActionTypes.USER_LOADING });
 
   axios
-    .get('https://flowrspot-api.herokuapp.com/api/v1/users/me', tokenConfig(getState))
+    .get('https://flowrspot-api.herokuapp.com/api/v1/users/me', tokenConfig())
     .then(res => {
-      console.log(res);
       dispatch({
         type: ActionTypes.USER_LOADED,
         payload: res.data.user
@@ -95,9 +94,9 @@ export const logout = () => {
 };
 
 // Setup config/headers and token
-export const tokenConfig = getState => {
+export const tokenConfig = () => {
   // Get token from localstorage
-  const token = getState().auth.token;
+  const token = localStorage.getItem('token');
 
   // Headers
   const config = {

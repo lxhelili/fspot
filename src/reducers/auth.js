@@ -4,25 +4,31 @@ import ActionTypes from '../constants/ActionTypes';
     token: localStorage.getItem('token'),
     isAuthenticated: null,
     isLoading: false,
-    user: null
+    user: null,
+    isRegistred: null
   };
   
   export default function(state = initialState, action) {
     switch (action.type) {
-    case ActionTypes.USER_LOADING:
+      case ActionTypes.USER_LOADING:
         return {
             ...state,
             isLoading: true
         };
-    case ActionTypes.USER_LOADED:
+      case ActionTypes.USER_LOADED:
         return {
             ...state,
             isAuthenticated: true,
             isLoading: false,
             user: action.payload
         };
-      case ActionTypes.LOGIN_SUCCESS:
       case ActionTypes.REGISTER_SUCCESS:
+        return {
+          ...state,
+          isLoading: false,
+          isRegistred: true
+        }
+      case ActionTypes.LOGIN_SUCCESS:
         localStorage.setItem('token', action.payload.auth_token);
         return {
           ...state,

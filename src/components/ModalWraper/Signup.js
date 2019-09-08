@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { clearErrors } from '../../actions/error';
-import { register } from '../../actions/auth';
 import Button from '../Button/Button';
 import FormField from '../FormField/FormField';
+import { hideModal, showModal } from '../../actions/modal';
+import { login, register } from '../../actions/auth';
+
+
 class Signup extends Component {
   state = {
     email: "",
@@ -37,7 +40,7 @@ class Signup extends Component {
     this.props.register(newUser);
   }
   componentDidUpdate(prevProps) {
-    const { error, isAuthenticated } = this.props;
+    const { error, isRegistred } = this.props;
     if (error !== prevProps.error) {
       // Check for register error
       if (error.id === 'REGISTER_FAIL') {
@@ -46,7 +49,17 @@ class Signup extends Component {
         this.setState({ msg: null });
       }
     }
+    if(isRegistred) {
+      this.props.showModal({
+        open: true,
+        message: "Congratulations! You have successfully signed up for FlowrSpot!",
+        confirmAction: this.closeModal,
+        closeModal: this.closeModal
+      }, 'registerSuccess');
+    }
   }
+
+  
   render() {
     return (
       <React.Fragment>
@@ -90,9 +103,23 @@ class Signup extends Component {
   }
 }
 
+
+const mapDispatchToProps = dispatch => ({
+  hideModal: () => dispatch(hideModal()),
+  showModal: (modalProps, modalType) => {
+    dispatch(showModal({ modalProps, modalType }))
+  },
+  login: (user) => {
+    dispatch(login(user))
+  },
+  register: (user) => {
+    dispatch(register(user))
+  }
+})
 const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated,
+  isRegistred: state.auth.isRegistred,
   error: state.error
-});
+})
 
-export default connect(mapStateToProps, { register, clearErrors })(Signup);
+export default connect(mapStateToProps, mapDispatchToProps)(Signup);

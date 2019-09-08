@@ -4,6 +4,10 @@ import { clearErrors } from '../../actions/error';
 import { login } from '../../actions/auth';
 import Button from '../Button/Button';
 import FormField from '../FormField/FormField';
+import { loadUser } from '../../actions/auth';
+import { hideModal } from '../../actions/modal';
+import { showModal } from '../../actions/modal';
+
 class Login extends Component {
   state = {
     email: "",
@@ -40,6 +44,18 @@ class Login extends Component {
         this.setState({ msg: null });
       }
     }
+    if(isAuthenticated) {
+      this.props.showModal({
+        open: true,
+        message: "Congratulations! You have successfully logged into FlowrSpot!",
+        confirmAction: this.closeModal,
+        closeModal: this.closeModal
+      }, 'loginSuccess');
+      this.props.loadUser();
+    }
+  }
+  closeModal = event => {
+    this.props.hideModal();
   }
 
    render() {
@@ -74,12 +90,21 @@ class Login extends Component {
   }
 }
 
+
+const mapDispatchToProps = dispatch => ({
+  hideModal: () => dispatch(hideModal()),
+  showModal: (modalProps, modalType) => {
+    dispatch(showModal({ modalProps, modalType }))
+  },
+  login: (user) => {
+    dispatch(login(user))
+  },
+  logout: () => dispatch(logout()),
+  loadUser: () => dispatch(loadUser())
+})
 const mapStateToProps = state => ({
-  auth: state.auth,
+  isAuthenticated: state.auth.isAuthenticated,
   error: state.error
 })
 
-export default connect(
-  mapStateToProps,
-  { login, clearErrors }
-)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

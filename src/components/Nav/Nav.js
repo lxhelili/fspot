@@ -46,11 +46,7 @@ class Nav extends Component {
     event.preventDefault();
     this.props.logout();
   }
-   componentDidUpdate(){
-     if(this.props.auth.isAuthenticated) {
-       this.props.hideModal();
-     }
-   }
+  
     render() {
       const { isAuthenticated, user } = this.props.auth;
       const authLinks = (

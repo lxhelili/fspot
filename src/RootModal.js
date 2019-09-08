@@ -6,7 +6,9 @@ import { default as modalTypes } from './components/ModalWraper';
 
 const MODAL_TYPES = {
   'signup': modalTypes.signupModal,
-  'login': modalTypes.loginModal
+  'login': modalTypes.loginModal,
+  'loginSuccess': modalTypes.loginSuccessModal,
+  'registerSuccess': modalTypes.registerSucessModal
 }
 
 class ModalContainer extends React.Component {
