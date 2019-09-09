@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Button from '../Button/Button';
 import { login } from '../../actions/auth';
 import {connect} from 'react-redux';
-import { hideModal } from '../../actions/modal';
+import { hideModal, showModal } from '../../actions/modal';
 
 const okButton = {
     color: "#df9186",
@@ -12,6 +12,15 @@ const okButton = {
 class LoginSuccess extends Component {
     closeModal = event => {
         this.props.hideModal();
+    }
+    openUserProfileModal = event => {
+        event.preventDefault();
+        this.props.showModal({
+          open: true,
+          title: 'User Profile',
+          confirmAction: this.closeModal,
+          closeModal: this.closeModal
+        }, 'userProfile')
     }
     render() {
         return (
@@ -26,7 +35,7 @@ class LoginSuccess extends Component {
                                 <Button type="button" text="OK" eventHandler={this.closeModal} style={okButton}/>
                             </div>
                             <div className="modal-column-2">
-                                <Button type="button" text="Profile" />
+                                <Button type="button" text="Profile" eventHandler={this.openUserProfileModal}/>
                             </div>
                         </div>
                     </div>
@@ -37,7 +46,10 @@ class LoginSuccess extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-    hideModal: () => dispatch(hideModal())
+    hideModal: () => dispatch(hideModal()),
+    showModal: (modalProps, modalType) => {
+        dispatch(showModal({ modalProps, modalType }))
+    }
   })
   const mapStateToProps = state => ({
     isAuthenticated: state.auth.isAuthenticated,

@@ -61,6 +61,9 @@ class Signup extends Component {
 
   
   render() {
+    const otherProps = {
+      required: true
+    }
     return (
       <React.Fragment>
         <div className="modal-content">
@@ -72,21 +75,21 @@ class Signup extends Component {
           <div className="modal-body">
             <div className="modal-row">
               <div className="modal-column-2 mb-10">
-                <FormField label="First Name" type="text" change={this.handleChange} value={this.state.first_name} name="first_name"/>
+                <FormField label="First Name" type="text" change={this.handleChange} value={this.state.first_name} name="first_name" {...otherProps }/>
               </div>
               <div className="modal-column-2 mb-10">
-                <FormField label="Last Name" type="text" change={this.handleChange} value={this.state.last_name} name="last_name"/>
+                <FormField label="Last Name" type="text" change={this.handleChange} value={this.state.last_name} name="last_name" {...otherProps }/>
               </div>
             </div>
             <div className="modal-row">
               <div className="modal-column-1 mb-10">
-                <FormField label="Email Address" type="text" change={this.handleChange} value={this.state.email} name="email"/>
+                <FormField label="Email Address" type="text" change={this.handleChange} value={this.state.email} name="email" {...otherProps }/>
               </div>
               <div className="modal-column-1 mb-10">
-                <FormField label="Password" type="password" change={this.handleChange} value={this.state.password} name="password"/>
+                <FormField label="Password" type="password" change={this.handleChange} value={this.state.password} name="password" {...otherProps }/>
               </div>
               <div className="modal-column-1">
-                <FormField label="Date of Birth" type="text" change={this.handleChange} value={this.state.date_of_birth} name="date_of_birth"/>
+                <FormField label="Date of Birth" type="text" change={this.handleChange} value={this.state.date_of_birth} name="date_of_birth" {...otherProps }/>
               </div>
             </div>
           </div>

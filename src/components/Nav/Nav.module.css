@@ -21,7 +21,7 @@
 .nav li.login a {
     color: #eaa79e;
 }
-.nav li.user {
+.nav li.user a {
     display: flex;
 }
 .nav li.user img {

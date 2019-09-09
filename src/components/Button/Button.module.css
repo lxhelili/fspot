@@ -3,7 +3,7 @@
     border-radius: 3px;
     box-shadow: 0 15px 20px 0 rgba(234, 168, 159, 0.2);
     background-image: linear-gradient(to left, #ecbcb3, #eaa79e);
-    display: block;
+    display: inline-block;
     font-size: 14px;
     font-weight: 500;
     color: #fff;

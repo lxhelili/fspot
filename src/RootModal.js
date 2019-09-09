@@ -8,7 +8,8 @@ const MODAL_TYPES = {
   'signup': modalTypes.signupModal,
   'login': modalTypes.loginModal,
   'loginSuccess': modalTypes.loginSuccessModal,
-  'registerSuccess': modalTypes.registerSucessModal
+  'registerSuccess': modalTypes.registerSucessModal,
+  'userProfile': modalTypes.userProfileModal
 }
 
 class ModalContainer extends React.Component {

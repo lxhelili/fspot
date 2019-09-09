@@ -128,3 +128,41 @@ body {
   font-weight: normal;
   cursor: pointer;
 }
+.profile-holder {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.profile-holder img {
+  height: 80px;
+}
+.profile-holder h3 {
+  font-size: 25px;
+  font-weight: 400;
+  font-weight: 300;
+  margin: 0;
+}
+.profile-holder p {
+  font-size: 13px;
+  color: #949ea0;
+  margin: 0;
+}
+.profile-name {
+  text-align: left;
+  margin-left: 30px;
+}
+.profile-row-details {
+  text-align: left;
+  margin-bottom: 25px;
+}
+.profile-row-details p {
+  font-size: 10px;
+  margin: 0;
+  color: #949ea0;
+  margin-bottom: 5px;
+}
+.profile-row-details h3  {
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0;
+}

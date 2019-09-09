@@ -59,6 +59,9 @@ class Login extends Component {
   }
 
    render() {
+    const otherProps = {
+      required: true
+    }
     return (
       <React.Fragment>
         <div className="modal-content">
@@ -70,10 +73,10 @@ class Login extends Component {
           <div className="modal-body">
             <div className="modal-row">
               <div className="modal-column-1 mb-10">
-                <FormField label="Email Address" type="text" change={this.handleChange} value={this.state.email} name="email"/>
+                <FormField label="Email Address" type="text" change={this.handleChange} value={this.state.email} name="email" {...otherProps} />
               </div>
               <div className="modal-column-1">
-                <FormField label="Password" type="password" change={this.handleChange} value={this.state.password} name="password"/>
+                <FormField label="Password" type="password" change={this.handleChange} value={this.state.password} name="password" {...otherProps}/>
               </div>
             </div>
           </div>

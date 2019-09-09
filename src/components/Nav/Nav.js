@@ -42,6 +42,16 @@ class Nav extends Component {
     }, 'signup')
   }
 
+  openUserProfileModal = event => {
+    event.preventDefault();
+    this.props.showModal({
+      open: true,
+      title: 'User Profile',
+      confirmAction: this.closeModal,
+      closeModal: this.closeModal
+    }, 'userProfile')
+  }
+
   logout = event => {
     event.preventDefault();
     this.props.logout();
@@ -61,8 +71,9 @@ class Nav extends Component {
       );
       const userLink = (
         <li className={styles.user}>
-            <a href="" onClick={this.logout}>{user ? `${user.first_name} ${user.last_name}` : null}</a>
-            <img src={userAvatar} />
+            <a href="" onClick={this.openUserProfileModal}>{user ? `${user.first_name} ${user.last_name}` : null}
+              <img src={userAvatar} />
+            </a>
         </li>
       );
         return (
