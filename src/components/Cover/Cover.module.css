@@ -23,3 +23,15 @@
     margin-top: 0;
     margin-bottom: 45px;
 }
+@media only screen and (max-width : 768px) {
+    .cell {
+        width: 33.333333333%;
+    }
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 420px) {
+    .cover {
+        padding: 0 40px;
+    }
+}
