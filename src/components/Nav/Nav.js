@@ -80,7 +80,7 @@ class Nav extends Component {
             <React.Fragment>
                 <ul className={styles.nav}>
                     <li><Link to="/flowers">Flowers</Link></li>
-                    <li><Link to="/laters-sightings">Latest Sightings</Link></li>
+                    <li><Link to="/latest-sightings">Latest Sightings</Link></li>
                     <li><Link to="/favorites">Favorites</Link></li>
                     { isAuthenticated ? userLink : authLinks }
                 </ul>
