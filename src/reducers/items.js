@@ -1,4 +1,4 @@
-import ActionTypes from '../constants/ActionTypes';
+import { GET_ITEMS, ITEMS_LOADING} from '../constants/ActionTypes';
 
 const initialState = {
   flowers: [],
@@ -7,13 +7,13 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case ActionTypes.GET_ITEMS:
+    case GET_ITEMS:
       return {
         ...state,
         flowers: action.payload,
         loading: false
       };
-    case ActionTypes.ITEMS_LOADING:
+    case ITEMS_LOADING:
       return {
         ...state,
         loading: true

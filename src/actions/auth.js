@@ -1,16 +1,26 @@
 import axios from 'axios';
-import ActionTypes from '../constants/ActionTypes';
+import {
+  USER_LOADING, 
+  USER_LOADED, 
+  AUTH_ERROR, 
+  REGISTER_SUCCESS,
+  REGISTER_FAIL, 
+  LOGIN_SUCCESS, 
+  LOGIN_FAIL, 
+  LOGOUT_SUCCESS 
+} from '../constants/ActionTypes';
+
 import { returnErrors } from './error';
 //Check token & load user
 export const loadUser = () => (dispatch) => {
   // User loading
-  dispatch({ type: ActionTypes.USER_LOADING });
+  dispatch({ type: USER_LOADING });
 
   axios
     .get('https://flowrspot-api.herokuapp.com/api/v1/users/me', tokenConfig())
     .then(res => {
       dispatch({
-        type: ActionTypes.USER_LOADED,
+        type: USER_LOADED,
         payload: res.data.user
       })
     }
@@ -19,7 +29,7 @@ export const loadUser = () => (dispatch) => {
     .catch(err => {
       dispatch(returnErrors(err.response.data, err.response.status));
       dispatch({
-        type: ActionTypes.AUTH_ERROR
+        type: AUTH_ERROR
       });
     });
 };
@@ -40,7 +50,7 @@ export const register = ({ email, password, first_name, last_name, date_of_birth
     .post('https://flowrspot-api.herokuapp.com/api/v1/users/register', body, config)
     .then(res =>
       dispatch({
-        type: ActionTypes.REGISTER_SUCCESS,
+        type: REGISTER_SUCCESS,
         payload: res.data
       })
     )
@@ -49,7 +59,7 @@ export const register = ({ email, password, first_name, last_name, date_of_birth
         returnErrors(err.response.data, err.response.status, 'REGISTER_FAIL')
       );
       dispatch({
-        type: ActionTypes.REGISTER_FAIL
+        type: REGISTER_FAIL
       });
     });
 };
@@ -70,7 +80,7 @@ export const login = ({ email, password }) => dispatch => {
     .post('https://flowrspot-api.herokuapp.com/api/v1/users/login', body, config)
     .then(res => {
       dispatch({
-        type: ActionTypes.LOGIN_SUCCESS,
+        type: LOGIN_SUCCESS,
         payload: res.data
       });
     }
@@ -81,7 +91,7 @@ export const login = ({ email, password }) => dispatch => {
         returnErrors(err.response.data, err.response.status, 'LOGIN_FAIL')
       );
       dispatch({
-        type: ActionTypes.LOGIN_FAIL
+        type: LOGIN_FAIL
       });
     });
 };
@@ -89,7 +99,7 @@ export const login = ({ email, password }) => dispatch => {
 // Logout User
 export const logout = () => {
   return {
-    type: ActionTypes.LOGOUT_SUCCESS
+    type: LOGOUT_SUCCESS
   };
 };
 

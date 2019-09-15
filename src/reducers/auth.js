@@ -1,4 +1,13 @@
-import ActionTypes from '../constants/ActionTypes';
+import {
+  USER_LOADING, 
+  USER_LOADED, 
+  AUTH_ERROR, 
+  REGISTER_SUCCESS,
+  REGISTER_FAIL, 
+  LOGIN_SUCCESS, 
+  LOGIN_FAIL, 
+  LOGOUT_SUCCESS 
+} from '../constants/ActionTypes';
   
   const initialState = {
     token: localStorage.getItem('token'),
@@ -10,25 +19,25 @@ import ActionTypes from '../constants/ActionTypes';
   
   export default function(state = initialState, action) {
     switch (action.type) {
-      case ActionTypes.USER_LOADING:
+      case USER_LOADING:
         return {
             ...state,
             isLoading: true
         };
-      case ActionTypes.USER_LOADED:
+      case USER_LOADED:
         return {
             ...state,
             isAuthenticated: true,
             isLoading: false,
             user: action.payload
         };
-      case ActionTypes.REGISTER_SUCCESS:
+      case REGISTER_SUCCESS:
         return {
           ...state,
           isLoading: false,
           isRegistred: true
         }
-      case ActionTypes.LOGIN_SUCCESS:
+      case LOGIN_SUCCESS:
         localStorage.setItem('token', action.payload.auth_token);
         return {
           ...state,
@@ -36,10 +45,10 @@ import ActionTypes from '../constants/ActionTypes';
           isAuthenticated: true,
           isLoading: false
         };
-      case ActionTypes.AUTH_ERROR:
-      case ActionTypes.LOGIN_FAIL:
-      case ActionTypes.LOGOUT_SUCCESS:
-      case ActionTypes.REGISTER_FAIL:
+      case AUTH_ERROR:
+      case LOGIN_FAIL:
+      case LOGOUT_SUCCESS:
+      case REGISTER_FAIL:
         localStorage.removeItem('token');
         return {
           ...state,

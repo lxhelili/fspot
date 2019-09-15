@@ -1,6 +1,6 @@
 
 import axios from 'axios';
-import ActionTypes from '../constants/ActionTypes';
+import { GET_ITEMS, ITEMS_LOADING } from '../constants/ActionTypes';
 import { returnErrors } from '../actions/error';
 
 export const getItems = () => async (dispatch) => {
@@ -10,7 +10,7 @@ export const getItems = () => async (dispatch) => {
     .then(res =>
       {
         dispatch({
-            type: ActionTypes.GET_ITEMS,
+            type: GET_ITEMS,
             payload: res.data.flowers
           })
       }
@@ -22,6 +22,6 @@ export const getItems = () => async (dispatch) => {
 
 export const setItemsLoading = () => {
   return {
-    type: ActionTypes.ITEMS_LOADING
+    type: ITEMS_LOADING
   };
 };

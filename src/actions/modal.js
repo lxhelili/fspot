@@ -1,8 +1,8 @@
-import ActionTypes from '../constants/ActionTypes';
+import { SHOW_MODAL, HIDE_MODAL } from '../constants/ActionTypes';
 
 export const showModal = ({ modalProps, modalType }) => dispatch => {
   dispatch({
-    type: ActionTypes.SHOW_MODAL,
+    type: SHOW_MODAL,
     modalProps,
     modalType
   });
@@ -10,6 +10,6 @@ export const showModal = ({ modalProps, modalType }) => dispatch => {
 
 export const hideModal = () => dispatch => {
   dispatch({
-    type: ActionTypes.HIDE_MODAL
+    type: HIDE_MODAL
   });
 }
