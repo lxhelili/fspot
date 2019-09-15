@@ -13,7 +13,9 @@ const ActionTypes = keyMirror({
   USER_LOADING: null,
   USER_LOADED: null,
   GET_ERRORS: null,
-  CLEAR_ERRORS: null
+  CLEAR_ERRORS: null,
+  GET_ITEMS: null,
+  ITEMS_LOADING: null
 });
 
 export default ActionTypes;

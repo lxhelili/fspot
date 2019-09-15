@@ -7,8 +7,7 @@ import LatestSightings from './containers/LatestSightings';
 import NotFound from './containers/NotFound';
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import RootModal from './RootModal';
-import { Provider } from 'react-redux';
+import ModalContainer from './ModalContainer';
 import store from './store';
 import { loadUser }  from './actions/auth';
 
@@ -18,7 +17,7 @@ class App extends Component {
     }
     render() {
         return (
-            <Provider store={store}>
+            <div data-test="appComponent">
                 <Router>
                     <div className="container">
                         <Header className="head"></Header>
@@ -30,9 +29,9 @@ class App extends Component {
                             <Route component={NotFound} />
                         </Switch>
                     </div>
-                    <RootModal />
+                    <ModalContainer />
                 </Router>
-            </Provider>
+            </div>
         )
     }
 }
