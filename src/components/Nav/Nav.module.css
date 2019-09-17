@@ -2,7 +2,7 @@
     padding: 0;
     margin: 0;
     list-style: none;
-    line-height: 40px;
+    float: left;
 }
 .nav li{
     float: left;
@@ -17,6 +17,11 @@
     text-decoration: none;
     font-size: 14px;
     font-weight: 500;
+    display: block;
+    line-height: 40px;
+}
+.nav li a:hover {
+    color: #eaa79e;
 }
 .nav li.login a {
     color: #eaa79e;
@@ -38,4 +43,25 @@
     border: none;
     padding: 12px 20px;
     cursor: pointer;
+}
+
+@media only screen and (max-width : 768px) {
+    .nav {
+        float: none;
+    }
+    .nav li {
+        float: none;
+        margin: 0;
+        text-align: center;
+    }
+    .nav li a,
+    .nav li.user a {
+        display: inline-block;
+    }
+    .nav li.user a {
+        color: #eaa79e;
+    }
+    .nav li.user img{
+        display: none;
+    }
 }

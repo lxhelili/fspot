@@ -5,7 +5,9 @@
 *::after {
   box-sizing: border-box; 
 }
-
+a, button {
+  outline: none;
+}
 html {
   font-family: sans-serif;
   line-height: 1.15;
