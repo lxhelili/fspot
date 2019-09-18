@@ -14,4 +14,3 @@ export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 export const GET_ITEMS = 'GET_ITEMS';
 export const SEARCH_ITEMS = 'SEARCH_ITEMS';
 export const ITEMS_LOADING = 'ITEMS_LOADING';
-export const FAVORITE_ITEM = 'FAVORITE_ITEM';

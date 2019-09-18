@@ -1,8 +1,7 @@
 
 import axios from 'axios';
-import { GET_ITEMS, ITEMS_LOADING, SEARCH_ITEMS, FAVORITE_ITEM } from '../constants/ActionTypes';
+import { GET_ITEMS, ITEMS_LOADING, SEARCH_ITEMS } from '../constants/ActionTypes';
 import { returnErrors } from '../actions/error';
-import { tokenConfig } from '../actions/auth';
 
 export const getItems = () => async (dispatch) => {
   dispatch(setItemsLoading());
@@ -29,23 +28,6 @@ export const searchItems = ({query}) => (dispatch) => {
       {
         dispatch({
             type: SEARCH_ITEMS,
-            payload: res.data.flowers
-          })
-      }
-    )
-    .catch(err =>
-      dispatch(returnErrors(err.response.data, err.response.status))
-    );
-};
-
-export const makeFavorite = ({id}) => (dispatch) => {
-  dispatch(setItemsLoading());
-   axios
-    .post(`https://flowrspot-api.herokuapp.com/api/v1/flowers/${id}/favorites`, null, tokenConfig())
-    .then(res =>
-      {
-        dispatch({
-            type: FAVORITE_ITEM,
             payload: res.data.flowers
           })
       }

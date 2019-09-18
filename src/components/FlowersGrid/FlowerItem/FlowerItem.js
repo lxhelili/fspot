@@ -1,17 +1,11 @@
 import React, {Component } from 'react'
 import styles from './FlowerItem.module.css';
 import cx from 'classnames';
-import { connect } from 'react-redux';
-
-import { makeFavorite } from '../../../actions/items';
 
 class FlowerItem extends Component {
     
-    markAsFavorite = id => {
-        this.props.makeFavorite(id);
-    };
     render() {
-        const favoriteIcon = (<div onClick={this.markAsFavorite.bind(this, this.props.item.id)} className={cx(styles.favoriteIcon, (this.props.item.favorites ? styles.active: ''))}></div>)
+        const favoriteIcon = (<div className={cx(styles.favoriteIcon, (this.props.item.favorites ? styles.active: ''))}></div>)
         return (
             <div className={styles.item} style ={ { backgroundImage: "url("+this.props.item.profile_picture+")" } }>
               {this.props.isAuthenticated ? favoriteIcon: null}
@@ -25,10 +19,5 @@ class FlowerItem extends Component {
     }
 }
 
-const mapDispatchToProps = dispatch => ({
-    makeFavorite: (id) => {
-        dispatch(makeFavorite({ id }))
-    }
-})
 
-export default connect(null, mapDispatchToProps)(FlowerItem);
+export default FlowerItem;
