@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Button from '../Button/Button';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { hideModal } from '../../actions/modal';
 import { loadUser, logout } from '../../actions/auth';
 import profileImage from '../../images/profile-holder.png';
@@ -67,7 +67,6 @@ const mapDispatchToProps = dispatch => ({
     logout: () => dispatch(logout())
   })
   const mapStateToProps = state => ({
-    error: state.error,
     user: state.auth.user
   })
   

@@ -1,6 +1,5 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import { clearErrors } from '../../actions/error';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { login } from '../../actions/auth';
 import Button from '../Button/Button';
 import FormField from '../FormField/FormField';
@@ -37,7 +36,7 @@ class Login extends Component {
   componentDidUpdate(prevProps) {
     const { error, isAuthenticated } = this.props;
     if (error !== prevProps.error) {
-      // Check for register error
+      // Check for login error
       if (error.id === 'LOGIN_FAIL') {
         this.setState({msg: error.msg})
       } else {
@@ -104,7 +103,6 @@ const mapDispatchToProps = dispatch => ({
   login: (user) => {
     dispatch(login(user))
   },
-  logout: () => dispatch(logout()),
   loadUser: () => dispatch(loadUser())
 })
 const mapStateToProps = state => ({

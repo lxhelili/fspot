@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Button from '../Button/Button';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { hideModal, showModal } from '../../actions/modal';;
 
 const okButton = {
@@ -43,11 +43,6 @@ const mapDispatchToProps = dispatch => ({
     showModal: (modalProps, modalType) => {
         dispatch(showModal({ modalProps, modalType }))
     }
-  })
-  const mapStateToProps = state => ({
-    isAuthenticated: state.auth.isAuthenticated,
-    isRegistred: state.auth.isRegistred,
-    error: state.error
-  })
-  
-  export default connect(mapStateToProps, mapDispatchToProps)(RegisterSuccess);
+});
+
+export default connect(null, mapDispatchToProps)(RegisterSuccess);

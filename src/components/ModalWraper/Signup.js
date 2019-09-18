@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import { clearErrors } from '../../actions/error';
+import { connect } from 'react-redux';
 import Button from '../Button/Button';
 import FormField from '../FormField/FormField';
 import { hideModal, showModal } from '../../actions/modal';
@@ -122,7 +121,6 @@ const mapDispatchToProps = dispatch => ({
   }
 })
 const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated,
   isRegistred: state.auth.isRegistred,
   error: state.error
 })
