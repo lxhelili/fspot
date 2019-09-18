@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styles from './Nav.module.css';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/auth';
 import userAvatar from '../../images/menu-profile-holder.png';
@@ -79,9 +79,9 @@ class Nav extends Component {
         return (
             <React.Fragment>
                 <ul className={styles.nav}>
-                    <li><Link to="/flowers">Flowers</Link></li>
-                    <li><Link to="/latest-sightings">Latest Sightings</Link></li>
-                    <li><Link to="/favorites">Favorites</Link></li>
+                    <li><NavLink activeStyle={{color: '#eaa79e'}} to="/flowers">Flowers</NavLink></li>
+                    <li><NavLink activeStyle={{color: '#eaa79e'}} to="/latest-sightings">Latest Sightings</NavLink></li>
+                    <li><NavLink activeStyle={{color: '#eaa79e'}} to="/favorites">Favorites</NavLink></li>
                     { isAuthenticated ? userLink : authLinks }
                 </ul>
             </React.Fragment>
