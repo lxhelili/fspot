@@ -18,6 +18,7 @@ class Search extends Component {
     event.preventDefault();
         const { query } = this.state;
         this.props.searchItems(query);
+        this.setState({query: ""})
     
     }
 

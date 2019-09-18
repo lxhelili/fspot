@@ -3,18 +3,26 @@ import Cover from '../components/Cover/Cover';
 import FlowersGrid from '../components/FlowersGrid/FlowersGrid';
 import { connect } from 'react-redux';
 import { getItems } from '../actions/items';
-
 class Home extends Component {
     componentDidMount(){
         this.props.getItems();
     }
 
     render() {
-        const { flowers } = this.props.items;
+        const { flowers, loading } = this.props.items;
+        let flowersList;
+        if(loading) {
+            flowersList = <h4 className="loader">Loading...</h4>
+        } else if(!loading && !flowers.length) {
+            flowersList = <h1 className="no-results">No Results Found</h1>
+        } else {
+            flowersList = <FlowersGrid flowers={flowers}/>
+        }
+        
         return (
             <React.Fragment>
                 <Cover />
-                <FlowersGrid flowers={flowers}/>
+                {flowersList}
             </React.Fragment>
         )
     }

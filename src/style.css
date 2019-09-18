@@ -169,3 +169,11 @@ body {
   font-weight: 400;
   margin: 0;
 }
+.loader,
+.no-results {
+  text-align: center;
+  margin: 20px 0;
+}
+.alert-danger {
+  color: red;
+}

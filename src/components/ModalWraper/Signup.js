@@ -70,7 +70,9 @@ class Signup extends Component {
         <form onSubmit={this.handleSubmit}>
           <div className="modal-header">
             <h3>{this.props.title}</h3>
-            {this.state.msg}
+            <div className="alert-danger">
+              {this.state.msg}
+            </div>
           </div>
           <div className="modal-body">
             <div className="modal-row">
