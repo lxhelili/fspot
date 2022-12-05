@@ -15,7 +15,7 @@ Runs the app in development mode.
 Open [http://localhost:8080](http://localhost:8080/) to view it in the browser.
 
 The page will automatically reload if you make changes to the code.  
-You will see the build errors and lint warnings in the console.
+You will see the build errors and lint warnings in the console
 
 **npm test**
 Runs the test.
